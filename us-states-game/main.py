@@ -15,7 +15,7 @@ state_data = pd.read_csv("50_states.csv")
 states = state_data.state.to_list()
 
 correct_guesses = []
-states_not_guessed = []
+missing_states = []
 
 answer_state = screen.textinput(title="Guess the State", prompt="What's another state's name? ")
 score = 0
@@ -26,8 +26,8 @@ while game_is_on:
     if answer_state is None or answer_state == "exit":
         for state in states:
             if state not in correct_guesses:
-                states_not_guessed.append(state)
-        data = {"States Missing": states_not_guessed}
+                missing_states.append(state)
+        data = {"States Missing": missing_states}
         data = pd.DataFrame(data)
         data.to_csv("states_not_guessed.csv")
         game_is_on = False
