@@ -11,5 +11,5 @@ with open("Input/Letters/starting_letter.txt", "r") as invitation_letter:
     print(letter)
     for name in invited_people:
         invitation_text = letter.replace("[name]", name)
-        with open(f"Output/ReadyToSend/starting_letter_{name}", "w") as invitation:
+        with open(f"Output/ReadyToSend/starting_letter_{name}.txt", "w") as invitation:
             invitation.write(invitation_text)
