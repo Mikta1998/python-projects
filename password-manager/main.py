@@ -31,10 +31,6 @@ def search_password():
         password = saved_info["password"]
         messagebox.showinfo(title=website, message=f"Email: {email}\nPassword: {password}")
 
-
-
-
-
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 def generate_password():
