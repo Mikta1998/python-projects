@@ -3,10 +3,17 @@ import pandas as pd
 df = pd.read_csv("nato_phonetic_alphabet.csv")
 
 phonetic_alphabet = {row.letter:row.code for index,row in df.iterrows()}
+code_words = []
 
-name = input("What is your name?: ")
-name = name.upper()
+while True:
+    try:
+        name = input("What is your name?: ").upper()
 
-code_words = [phonetic_alphabet[letter] for letter in name if letter in phonetic_alphabet.keys()]
+        for letter in name:
+            code_words.append(phonetic_alphabet[letter])
+        print(code_words)
+        break
 
-print(code_words)
+    except KeyError:
+        print(f"Only letter from the english alphabet are allowed!")
+        code_words = []
